@@ -57,7 +57,9 @@ jobs:
           sed -i 's/#icon.filename =/icon.filename = profile.png/g' buildozer.spec
           sed -i 's/#package.name = myapp/package.name = expenseapp/g' buildozer.spec
           sed -i 's/#package.domain = org.test/package.domain = org.expense/g' buildozer.spec
-          buildozer -v android debug
+          sed -i 's/#android.api = 33/android.api = 33/g' buildozer.spec
+          sed -i 's/#android.sdk = 33/android.sdk = 33/g' buildozer.spec
+          yes | buildozer -v android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
